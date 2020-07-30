@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>test_work</title>
+	<script>
+		!function(f,b,e,v,n,t,s) {if(f.fbq)return;n=f.fbq=function(){n.callMethod? n.callMethod.apply(n,arguments):n.queue.push(arguments)}; if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0'; n.queue=[];t=b.createElement(e);t.async=!0; t.src=v;s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s)}(window, document,'script', 'https://connect.facebook.net/en_US/fbevents.js');
+	
+		//Можно таким образом, но данная реализация не работает в IE11 и старых браузерах
+		//const defaultFbqId = '123456789123456';
+		//const urlParams = new URLSearchParams();
+		//const fbqId = urlParams.get('fbpx') ?? defaultFbqId;
+	
+		var fbqId = '123456789123456';
+		var urlParamMatch = /fbpx=([^&]+)/.exec(window.location.search);
+	
+		if (urlParamMatch) {
+			fbqId = urlParamMatch[1];
+		}
+	
+		fbq('init', fbqId);
+		fbq('track', 'PageView');
+		fbq('track', 'ViewContent');
+		fbq('track', 'Lead');
+	</script>
+	<!-- Содержимое элемента noscript не может быть изменено с помощью js так как тэг используется в случае если js по какой-то причине отключен -->
+	<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=123456789123456&ev=PageView&noscript=1" /></noscript>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/main.min.css">
+</head>
+<body>
+	<div class="container flex">
+		<div class="form_wrapper">
+			<form action="" class="flex_wrapper">
+				<div class="column_with_info">
+					<input type="text" placeholder="NAME">
+					<input type="email" placeholder="EMAIL">
+					<input type="url" placeholder="WEB">
+				</div>
+				<div class="column_with_text">
+					<textarea placeholder="MESSAGE"></textarea>
+					<input type="submit" value="SEND">
+				</div>
+			</form>
+		</div>
+	</div>
+	<!-- <script src="js/main.min.js"></script> -->
+</body>
+</html>
